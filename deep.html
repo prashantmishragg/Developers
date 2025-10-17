@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dew Laxmi Developers - Trusted Real Estate Dealers in Prayagraj</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #e74c3c;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e74c3c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #c0392b;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* Property Search */
+        .search-box {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .search-form select,
+        .search-form input {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Properties Grid */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .property-image {
+            height: 200px;
+            background: #ddd;
+            position: relative;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+
+        .property-details {
+            padding: 1.5rem;
+        }
+
+        .property-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-address {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .property-features {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-item {
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            color: #e74c3c;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #e74c3c;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">DEW <span>LAXMI</span> DEVELOPERS</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Find Your Dream Property in Prayagraj with Dew laxmi developers</h1>
+            <p>Trusted real estate partners with 10+ years of experience in property dealing, buying, selling, and renting.</p>
+            <a href="#properties" class="cta-button">Browse Properties</a>
+        </div>
+    </section>
+
+    <!-- Property Search Section -->
+    <section id="search" class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Your Perfect Property</h2>
+                <p>Search from our extensive collection of properties in Prayagraj</p>
+            </div>
+            <div class="search-box">
+                <form class="search-form">
+                    <select>
+                        <option>Property Type</option>
+                        <option>Residential</option>
+                        <option>Commercial</option>
+                        <option>Plot/Land</option>
+                    </select>
+                    <select>
+                        <option>Buy/Rent</option>
+                        <option>Buy</option>
+                        <option>Rent</option>
+                    </select>
+                    <select>
+                        <option>Budget</option>
+                        <option>Under 20 Lakhs</option>
+                        <option>20-50 Lakhs</option>
+                        <option>50 Lakhs - 1 Cr</option>
+                        <option>Above 1 Cr</option>
+                    </select>
+                    <select>
+                        <option>Location</option>
+                        <option>Civil Lines</option>
+                        <option>Allahabad University</option>
+                        <option>Katara</option>
+                        <option>Shantipuram</option>
+                        <option>Naini</option>
+                    </select>
+                    <button type="submit" class="cta-button" style="border: none; cursor: pointer;">Search</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Properties</h2>
+                <p>Handpicked properties for your dream home or investment</p>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div clas
+                <div class="property-card">
+                        <div class="property-address">Shantipuram, Prayagraj</div>
+                        <div class="property-address">Lucknow-Pratapgarh Road</div>
+                        <div class="property-features">
+                        </div>
+                        <button class="cta-button" style="width: 100%; border: none; cursor: pointer;">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive real estate solutions for all your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Property Buying</h3>
+                    <p>Find your dream home with our extensive property listings and expert guidance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Property Selling</h3>
+                    <p>Get the best price for your property with our marketing expertise.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔑</div>
+                    <h3>Property Rental</h3>
+                    <p>Find perfect rental properties or tenants for your investment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Legal Assistance</h3>
+                    <p>Complete legal documentation and verification services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Properties</h3>
+                    <p>Office spaces, shops, and commercial complex deals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Property Valuation</h3>
+                    <p>Accurate market valuation for informed decision making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Dew Laxmi Properties</h2>
+                <p>Your trusted real estate partner in Prayagraj</p>
+            </div>
+            <div class="about-content">
+                <div>
+                    <h3>Why Choose Us?</h3>
+                    <p>With over a decade of experience in the real estate industry, Dew Laxmi Properties has established itself as the most trusted property dealer in Prayagraj. We understand the local market dynamics and provide personalized solutions to meet your specific needs.</p>
+                    <br>
+                    <h3>Our Expertise</h3>
+                    <ul style="list-style: none;">
+                        <li>✅ 10+ Years of Experience</li>
+                        <li>✅ 500+ Happy Clients</li>
+                        <li>✅ 1000+ Properties Handled</li>
+                        <li>✅ Legal Documentation Support</li>
+                        <li>✅ Transparent Dealing</li>
+                        <li>✅ Best Price Guarantee</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Areas We Cover</h3>
+                    <ul style="list-style: none;" 
+                        <li>📍 Hathgawa</li>
+                        <li>📍 Shantipuram</li>
+                        <li>📍 Malaka</li>
+                        <li>📍 Gohri</li>
+                        <li>📍 Tagore Town</li>
+                        <li>📍 All major areas of Prayagraj</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for your property needs</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm interested in</label>
+                            <select id="interest" name="interest">
+                                <option>Buying Property</option>
+                                <option>Selling Property</option>
+                                <option>Commercial Property</option>
+                                <option>Plot/Land</option>
+                                <option>Property Valuation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="border: none; cursor: pointer;">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Visit Our Office</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone:</strong><br>
+                            <a href="tel:+919918366777" style="color: white;">+91 9918366777</a><br>
+                            <a href="tel:+919415283102" style="color: white;">+91 9415283102</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Address:</strong><br>
+                            Rajput Market, Lucknow-Pratapgarh Main Road<br>
+                            Shantipuram Chouraha, Prayagraj
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <strong>Business Hours:</strong><br>
+                            Monday - Saturday: 9:00 AM - 7:00 PM<br>
+                            Sunday: 10:00 AM - 5:00 PM
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email:</strong><br>
+                            atiwariupp.gmail.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dew Laxmi Properties</h3>
+                    <p>Your trusted real estate partner in Prayagraj with 10+ years of experience in property dealing and consultancy services.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#home">Home</a></p>
+                    <p><a href="#properties">Properties</a></p>
+                    <p><a href="#services">Services</a></p>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📞 +91 9918366777 / +91 9415283102</p>
+                    <p>📧 atiwariupp.gmail.com</p>
+                    <p>📍1st floor Rajput Market, Lucknow-Pratapgarh Main Road<br>Shantipuram Chouraha, Prayagraj</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p>Property Buying & Selling</p>
+                    <p>Rental Properties</p>
+                    <p>Commercial Properties</p>
+                    <p>Legal Documentation</p>
+                    <p>Property Valuation</p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #444;">
+                <p>&copy; 2022 Dew Laxmi Properties (Dew Laxmi Developer Pvt. Ltd.). All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you soon.');
+            this.reset();
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 62, 80, 0.95)';
+            } else {
+                header.style.background = '#2c3e50';
+            }
+        });
+
+        // Property card interactions
+        document.querySelectorAll('.property-card .cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const propertyTitle = this.closest('.property-card').querySelector('h3').textContent;
+                alert('Thank you for your interest in: ' + propertyTitle + '\nWe will contact you with more details.');
+            });
+        });
+
+        // Email click handler
+        document.querySelectorAll('a[href^="mailto:"]').forEach(emailLink => {
+            emailLink.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
